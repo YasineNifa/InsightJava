@@ -1,0 +1,33 @@
+.help
+	- show all useful sqlite3 commande
+sqlite3 test.db :
+	- create a new database called test.db
+.headers on
+	- display the column names when we execute the select command
+create table contexte(field + type);
+insert into contexte (field + type) values ();
+select * from contexte;
+.backup testbackup
+pour voir tous ce qu'on a fait
+.restore testbackup : to return to the avant dernière step
+delete from contexte where name = "Yassine";
+update contexte set email = "sfs" where name="jqed";
+
+.tables : to show all tables created
+.schema :  show all command done for the dataset test
+.schema table : show all command done for a specific table
+.dump :  if we are interessted to know all what we did with data 
+
+select * from albums order by name collate Nocase ;
+il effectue un ordre en tenant pas en compte le low or high case
+
+
+
+select artists.name as artist, albums.name as album, songs.track, songs.title as title from songs
+inner join albums on songs.album = albums._id
+inner join artists on albums.artist = artists._id
+order by artists.name,albums.name, songs.track;
+
+
+select songs.title from songs inner join albums on albums._id = songs.album inner join artists on artists._id = album.artist where artists.name = "Aerosmith" order by songs.title;
+select distinct : to select without duplicate
